@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="8dp"
+
+    android:paddingBottom="@dimen/row_edge_padding"
+    android:paddingLeft="@dimen/row_edge_padding"
+    android:paddingRight="@dimen/row_edge_padding"
+    android:paddingTop="@dimen/row_edge_padding">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/row_vertical_space"
+        android:paddingLeft="@dimen/small_pading"
+        android:paddingRight="@dimen/small_pading"
+        android:paddingTop="@dimen/row_vertical_space">
+
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/appIcon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_launcher"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Funny jokes"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/appIcon"
+            android:layout_centerVertical="true"
+            android:typeface="serif" />
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
