@@ -40,7 +40,14 @@ public class GCMIntentService extends GCMBaseIntentService {
         String message = intent.getExtras().getString("message");
         //    displayMessage(context, message);
         // notifies user
+
+
         generateNotification(context, message);
+
+
+
+
+
     }
 
     private static void generateNotification(Context context, String message) {
