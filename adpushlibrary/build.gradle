@@ -1,4 +1,21 @@
 apply plugin: 'com.android.library'
+apply plugin: 'signing'
+
+String getVersionString() {
+    String v = VERSION_NAME.replaceAll(".(0)\$", "." + buildNumber())
+    v = isTag() ? v : v + "-SNAPSHOT"
+    return v
+}
+
+group = GROUP
+version = getVersionString()
+
+
+if (isReleaseBuild()) {
+    status = 'release'
+} else {
+    status = 'integration'
+}
 
 android {
     compileSdkVersion 22
@@ -28,3 +45,4 @@ dependencies {
     compile 'jp.wasabeef:recyclerview-animators:1.2.0'
     compile 'com.mcxiaoke.volley:library:1.0.16'
 }
+apply from: '../maven_push.gradle'
