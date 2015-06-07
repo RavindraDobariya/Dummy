@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
@@ -10,29 +11,17 @@ buildscript {
     }
 }
 
+def isReleaseBuild(){
+    return version.contains("SNAPSHOT") == false
+}
+
 allprojects {
+
+    version = VERSION_NAME
+    group = GROUP
+
     repositories {
         jcenter()
+        mavenCentral()
     }
-}
-
-def isReleaseBuild() {
-    return isTag() && !isSnapshot()
-}
-
-def isSnapshot() {
-    return version.contains("SNAPSHOT")
-}
-
-boolean isTravis() {
-    return System.getenv('TRAVIS_BUILD_NUMBER') ? true : false
-}
-
-boolean isTag() {
-    def tag = System.getenv('TRAVIS_TAG')
-    return !(tag == null || tag.isEmpty())
-}
-
-def buildNumber() {
-    return System.getenv('TRAVIS_BUILD_NUMBER') ?: "0"
 }
